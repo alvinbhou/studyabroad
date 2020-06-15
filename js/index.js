@@ -6,8 +6,8 @@ Description:   API scripts and listeners initialization
 Author:        Alvin Hou
 -------------------------------------------------
 */
-// const API_URL = 'https://ptt-studyabroad-api.herokuapp.com/admission';
-const API_URL = 'http://127.0.0.1:5000/admission';
+const API_URL = 'https://ptt-studyabroad-api.herokuapp.com/admission';
+// const API_URL = 'http://127.0.0.1:5000/admission';
 
 const placeholder_str = `<span> - </span>`;
 
