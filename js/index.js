@@ -308,7 +308,14 @@ $(document).ready(() => {
                         }]
                     },
                     options: {
-                        responsive: true
+                        responsive: true,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
                     }
                 });
                 $('#chart_row').removeClass('hidden');
