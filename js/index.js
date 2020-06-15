@@ -7,7 +7,7 @@ Author:        Alvin Hou
 -------------------------------------------------
 */
 const API_URL = 'https://ptt-studyabroad-api.herokuapp.com/admission';
-// const API_URL = 'http://127.0.0.1:5000/admission';
+// const API_URL = 'http://127.0.0.1:8000/admission';
 
 const placeholder_str = `<span> - </span>`;
 
@@ -202,7 +202,7 @@ $(document).ready(() => {
                     data: {
                         labels: Object.keys(program_type_counter),
                         datasets: [{
-                            label: '# of admissions',
+                            label: '# of posts',
                             data: Object.values(program_type_counter),
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
@@ -235,7 +235,7 @@ $(document).ready(() => {
                 });
 
                 // Pie Chart
-                let ctxP = document.getElementById("pieChart").getContext('2d');
+                let ctxP = document.getElementById("horizontalBarChart");
                 // Create uni_items array
                 let uni_items = sort_dict(university_counter, sort_by = 'value', reverse = true);
                 // Get top 10 popular admission universities
@@ -251,10 +251,11 @@ $(document).ready(() => {
                     commonUniPieChart.destroy();
                 }
                 commonUniPieChart = new Chart(ctxP, {
-                    type: 'pie',
+                    type: 'horizontalBar',
                     data: {
                         labels: uni_labels,
                         datasets: [{
+                            label: '# of posts',
                             data: uni_counts,
                             backgroundColor: mdColors,
                             hoverBackgroundColor: mdColors
@@ -264,6 +265,13 @@ $(document).ready(() => {
                         responsive: true,
                         legend: screen.width < 1440 ? false : {
                             position: 'bottom'
+                        },
+                        scales: {
+                            xAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
                         }
                     }
                 });

@@ -132,11 +132,8 @@
                       school</span> to get started!
 
                     <br><br>
-
-                    We support a wide range of programs (especially the CMU ones). You could specify which
-                    domains you are interested in, such as HCI or SE
-
-
+                    We support a wide range of programs (especially the CMU ones). You could specify your interests,
+                    such as HCI or industrial-oriented programs
                   </div>
               </article>
             </div>
@@ -197,8 +194,15 @@
                       class="form-control">
                   </div>
                 </div>
+                <div class="row">
+                  <div class=" col-md-6 mb-6">
+                    <div class="font-weight-normal">Program Type / Specialization</div>
+                  </div>
+                  <div class=" col-md-6 mb-6 ">
+                    <div class="font-weight-normal">Program Level</div>
+                  </div>
+                </div>
 
-                <div class="font-weight-normal">Program Type and Level</div>
                 <div class="row">
                   <div class=" col-md-6 mb-6 mb-md-2 d-flex justify-content-center">
                     <div class="input-group flex-nowrap">
@@ -262,7 +266,7 @@
           <!--Card-->
           <div class="card">
             <div class="card-header text-center">
-              Program Types
+              # of Posts per Program Type / Specialization
             </div>
             <!--Card content-->
             <div class="card-body">
@@ -283,7 +287,7 @@
             </div>
             <!--Card content-->
             <div class="card-body">
-              <canvas id="pieChart" height="250px"></canvas>
+              <canvas id="horizontalBarChart" height="250px"></canvas>
             </div>
           </div>
           <!--/.Card-->
@@ -387,6 +391,20 @@
     new WOW().init();
   </script>
   <script type="text/javascript" src="js/index.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116950961-5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-116950961-5');
+  </script>
+
+
 </body>
 
 </html>
