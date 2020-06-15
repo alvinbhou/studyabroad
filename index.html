@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>PTT StudyAbroad API</title>
+
+  <meta property="og:title" content="PTT StudyAbroad API">
+  <meta property="og:url" content="https://cryolitez.github.io/studyabroad">
+  <meta property="og:image" content="https://cryolitez.github.io/studyabroad/img/main_img.png">
+  <meta property="og:description" content="Search for PTT articles with customized results">
+  <meta name="description" content="Search for PTT articles with customized results" />
+  <!-- Search Engine -->
+  <meta name="description" content="PTT StudyAbroad API">
+  <meta name="image" content="https://cryolitez.github.io/studyabroad/img/main_img.png"> <!-- Schema.org for Google -->
+  <meta itemprop="name" content="PTT StudyAbroad API">
+  <meta itemprop="description" content="Lethargic developer">
+  <meta itemprop="image" content="https://cryolitez.github.io/studyabroad/img/main_img.png"> <!-- Font Awesome -->
+  <link rel="Shortcut Icon" type="image/x-icon" href="img/favicon.png" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css"
+    rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput-typeahead.css"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" />
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <link href="css/addons/datatables.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="grey lighten-3">
+
+  <!--Main Navigation-->
+  <header>
+
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+      <div class="container-fluid">
+
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect" href="https://cryolite.me/studyabroad">
+          <strong class="blue-text">PTT StudyAbroad API</strong>
+        </a>
+
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <!-- Left -->
+          <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item active">
+              <a class="nav-link waves-effect" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href="" target="_blank">About
+                PTT-StudyAbroad-API</a>
+            </li> -->
+          </ul>
+
+          <!-- Right -->
+          <ul class="navbar-nav nav-flex-icons">
+            <!-- <li class="nav-item">
+              <a href="" class="nav-link waves-effect" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>  -->
+            <li class="nav-item">
+              <a href="https://ptt-studyabroad-api.herokuapp.com/docs"
+                class="nav-link border border-light rounded waves-effect" target="_blank">
+                <i class="fas fa-book"></i> Docs
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="https://github.com/CryoliteZ/ptt-studyabroad-api"
+                class="nav-link border border-light rounded waves-effect" target="_blank">
+                <i class="fab fa-github mr-2"></i>View on GitHub
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+    </nav>
+    <!-- Navbar -->
+
+
+  </header>
+  <!--Main Navigation-->
+
+  <!--Main layout-->
+  <main class="pt-5 mx-lg-5">
+    <div class="container-fluid mt-5">
+
+      <!-- Heading -->
+      <!--Section: Content-->
+      <div class="container my-5 z-depth-1 bg-white round">
+        <!--Section: Content-->
+        <section class="dark-grey-text p-5">
+
+          <!-- Grid row -->
+          <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-5 mb-4 mb-md-0">
+              <div class="view">
+                <img src="img/svg/main_img.svg" class="img-fluid main-img mb-md-4" alt="main image">
+              </div>
+              <article class="article">
+                <h3 class="article__title mb-md-3">Search for PTT articles with customized results</h2>
+                  <!-- <div class="article__date">2017/12/21</div> -->
+                  <div class="article__content justify-content-center main_api_description"> Enter your
+                    <span class="font-weight-500">background</span>, <span class="font-weight-500">research
+                      interest</span>, and <span class="font-weight-500">target
+                      school</span> to get started!
+
+                    <br><br>
+
+                    We support a wide range of programs (especially the CMU ones). You could specify which
+                    domains you are interested in, such as HCI or SE
+
+
+                  </div>
+              </article>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-7 mb-lg-0 mb-8">
+              <form class="container">
+                <div class="font-weight-normal">Academic Background</div>
+                <div class="row">
+                  <div class=" col-md-12 mb-12 mb-md-4 d-flex justify-content-center">
+                    <div class="input-group flex-nowrap">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text addon-wrapping">University</span>
+                      </div>
+                      <input id="university" ype="text" class="form-control" placeholder="Ex: NTU / 台大 / 國立臺灣大學 / 112"
+                        aria-label="University" aria-describedby="addon-wrapping">
+                    </div>
+                  </div>
+                  <div class=" col-md-6 mb-6 mb-md-4 d-flex justify-content-center">
+                    <div class="input-group flex-nowrap">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text addon-wrapping">Major</span>
+                      </div>
+                      <input id="major" type="text" class="form-control" placeholder="Ex: CS / CSIE / 資管"
+                        aria-label="Major" aria-describedby="addon-wrapping">
+                    </div>
+                  </div>
+                  <div class=" col-md-6 mb-6 mb-md-4 d-flex justify-content-center">
+                    <div class="input-group flex-nowrap">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text addon-wrapping">GPA</span>
+                      </div>
+                      <input id="gpa" type="number" step="0.01" class="form-control" placeholder="Ex: 3.9"
+                        aria-label="GPA" aria-describedby="addon-wrapping">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class=" col-md-12 mb-12 mb-md-4 ">
+                    <div class="font-weight-normal"><span data-toggle="tooltip"
+                        title="Fullname or abbreviations are both acceptable">Target Schools <i
+                          class="fas fa-info-circle font-weight-600"></i></span></div>
+                    <input id="target_schools" type="search" data-role="tagsinput"
+                      placeholder="Ex: Stanford / U Michigan / CMU / UCSD / UC Berkeley / UTAustin" aria-label="Search"
+                      class="form-control">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class=" col-md-12 mb-12 mb-md-4 ">
+                    <div class="font-weight-normal"> <span data-toggle="tooltip"
+                        title="We only support EE/CS related programs at this moment">Target Programs <i
+                          class="fas fa-info-circle font-weight-600"></i></span></div>
+                    <input id="target_programs" type="search" data-role="tagsinput"
+                      placeholder="Ex: CS / EE / MSCS / MHCI / MEng / LTI / Robotics" aria-label="Search"
+                      class="form-control">
+                  </div>
+                </div>
+
+                <div class="font-weight-normal">Program Type and Level</div>
+                <div class="row">
+                  <div class=" col-md-6 mb-6 mb-md-2 d-flex justify-content-center">
+                    <div class="input-group flex-nowrap">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text addon-wrapping">Type</span>
+                      </div>
+
+                      <select id="program_types" class="selectpicker" multiple data-live-search="true">
+                        <option value="CS">CS</option>
+                        <option value="EE">EE</option>
+                        <option value="IS">IS</option>
+                        <option value="HCI">HCI</option>
+                        <option value="MEng">MEng</option>
+                        <option value="SE">SE</option>
+                      </select>
+                    </div>
+
+                  </div>
+                  <div class=" col-md-6 mb-6 mb-md-2 d-flex justify-content-center">
+                    <div class="input-group flex-nowrap">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text addon-wrapping">Level</span>
+                      </div>
+                      <select class="browser-default custom-select">
+                        <option value="MS" selected>MS</option>
+                        <option value="PhD">PhD</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="font-weight-lighter">(*Note) All fields are optional</div>
+
+                <div class="container">
+                  <div class=" col-md-12 mb-12 mb-md-4 d-flex justify-content-center">
+                    <button id="api-btn" rel="#" type="button" class="btn btn-rounded btn-primary round-btn">
+                      <i id="search-icon" class="fas fa-search pr-2" aria-hidden="true"></i>
+                      <span id="search-spinner" class="spinner-border spinner-border-sm hidden" role="status"
+                        aria-hidden="true"></span>
+                      Search
+                    </button>
+                  </div>
+                </div>
+
+              </form>
+              <!-- Form -->
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </section>
+        <!--Section: Content-->
+
+      </div>
+      <!-- Heading -->
+
+      <!--Grid row-->
+      <div id="chart_row" class="row wow fadeIn hidden d-flex justify-content-center">
+
+        <!--Grid column-->
+        <div class="col-md-4 mb-4">
+          <!--Card-->
+          <div class="card">
+            <div class="card-header text-center">
+              Program Types
+            </div>
+            <!--Card content-->
+            <div class="card-body">
+              <canvas id="histogramChart" height="250px"></canvas>
+            </div>
+          </div>
+          <!--/.Card-->
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-4 mb-4">
+          <!--Card-->
+          <div class="card mb-4">
+            <!-- Card header -->
+            <div class="card-header text-center">
+              Top 10 Common Universities
+            </div>
+            <!--Card content-->
+            <div class="card-body">
+              <canvas id="pieChart" height="250px"></canvas>
+            </div>
+          </div>
+          <!--/.Card-->
+        </div>
+        <div class="col-md-4 mb-4">
+
+          <!--Card-->
+          <div class="card mb-4">
+            <div class="card-header text-center">
+              Articles Distribution across Years
+            </div>
+
+            <!--Card content-->
+            <div class="card-body">
+              <!-- Line Chart -->
+              <canvas id="lineChart" height="250px"></canvas>
+              <!-- Line Chart-->
+            </div>
+          </div>
+          <!--/.Card-->
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+
+      <div class="row wow fadeIn">
+        <!--Grid column-->
+        <div class="col-md-12 mb-4 ">
+          <!--Card-->
+          <div class="card round">
+            <!--Card content-->
+            <div class="card-body">
+              <table id="main-table" class="table table-striped table-bordered round " cellspacing="0" width="100%">
+                <thead class="blue lighten-4">
+                </thead>
+              </table>
+            </div>
+          </div>
+          <!--/.Card-->
+        </div>
+      </div>
+
+
+    </div>
+  </main>
+  <!--Main layout-->
+
+  <!--Footer-->
+  <footer class="page-footer text-center font-small blue mt-4 wow fadeIn">
+    <hr class="my-4">
+    <!-- Social icons -->
+    <div class="pb-4">
+
+
+      <a href="https://www.linkedin.com/in/alvinbhou/" target="_blank">
+        <i class="fab fa-linkedin mr-3"></i>
+      </a>
+
+      <a href="https://cryolite.me" target="_blank">
+        <i class="fas fa-globe-americas mr-3"></i>
+      </a>
+
+      <a href="https://github.com/CryoliteZ" target="_blank">
+        <i class="fab fa-github mr-3"></i>
+      </a>
+
+
+    </div>
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2020 Copyright:
+      <a href="https://cryolite.me" target="_blank"> Alvin Hou </a> |
+      Designed by MDBootstrap
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
+  <!--/.Footer-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src="js/addons/datatables.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.min.js">
+  </script>
+
+
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+  </script>
+  <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>

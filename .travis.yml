@@ -1,0 +1,33 @@
+language: generic
+
+
+before_install:
+# grant the needed permission for deploy.sh
+  - chmod +x deploy.sh
+# DONT SETUP GH_TOKEN here, set it in Travis to avoid the security issue
+# git setup
+  - git config --global push.default matching
+  - git config --global user.name "Alvin Hou via Travis CI"
+  - git config --global user.email "alvinhou@stanford.edu"
+
+# github user name
+  - export ACCOUNT=CryoliteZ
+# github project name
+  - export REPO=studyabroad
+
+# target export branch
+  - export BRANCH=gh-pages
+# check /usr/share/zoneinfo/ for valid timezone
+# used in auto commit message
+  - export TIMEZONE=Asia/Taipei
+
+
+script:
+# check details on https://github.com/gasolin/ghpage-auto-deploy
+  - ./deploy.sh
+
+branches:
+  only:
+# the source branch
+    - master
+
