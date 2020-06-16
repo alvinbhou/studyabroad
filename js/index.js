@@ -7,7 +7,7 @@ Author:        Alvin Hou
 -------------------------------------------------
 */
 const API_URL = 'https://ptt-studyabroad-api.herokuapp.com/admission';
-// const API_URL = 'http://127.0.0.1:8000/admission';
+// const API_URL = 'http://127.0.0.1:5000/admission';
 
 const placeholder_str = `<span> - </span>`;
 
@@ -97,7 +97,9 @@ $(document).ready(() => {
     $('#ex-btn1').click((e) => {
         $("#target_schools").tagsinput('add', 'CMU');
         $("#target_schools").tagsinput('add', 'CMU-SV');
-        let program_arr = ['MSIN', 'MSIS', 'MHCI', 'MITS', 'MSIT', 'MSSE', 'MCDS', 'MSML', 'MSR', 'MSCV', 'MISM', 'LTI', 'ETC', 'MSIT-MOB', 'METALS'];
+        let program_arr = ['MSCS', 'MSIN', 'MSIS', 'MHCI', 'MITS', 'MSIT', 'MSSE', 'MCDS', 'MSML', 'MSR',
+            'MRSD', 'MSCV', 'MISM', 'LTI', 'ETC', 'METALS', 'MSIT-MOB', 'MSIT-SE', 'RI'
+        ];
         program_arr.forEach(e => {
             $("#target_programs").tagsinput('add', e);
         })
@@ -190,9 +192,9 @@ $(document).ready(() => {
                     let programs = [];
                     article.admission_programs.forEach(ad_program => {
                         if (ad_program.program_level != 'PhD') {
-                            programs.push(`<span class="font-weight-bolder">${ad_program.university}</span> - <span class="f">${ad_program.program}</span>`);
+                            programs.push(`<div><span class="font-weight-bolder">${ad_program.university}</span> - <span class="f">${ad_program.program}</span></div>`);
                         } else {
-                            programs.push(`<span class="font-weight-bolder">${ad_program.university}</span> - <span class="">${ad_program.program} PhD</span>`);
+                            programs.push(`<div><span class="font-weight-bolder">${ad_program.university}</span> - <span class="">${ad_program.program} PhD</span></div>`);
                         }
                         if (ad_program.program_type) {
                             program_type_counter[ad_program.program_type] += 1;
@@ -204,8 +206,7 @@ $(document).ready(() => {
                             university_program_counter[ad_program.university + '@' + ad_program.program] += 1;
                         }
                     });
-                    let ad_str = programs.join('<br>');
-
+                    let ad_str = programs.join('');
                     let score_str = article.score;
                     let link_str = `<a href=${article.url} target="_blank"><i class="fas fa-external-link-alt"></i></a>`;
 
@@ -213,7 +214,6 @@ $(document).ready(() => {
                         title_str, university_str, major_str, gpa_str,
                         ad_str, date_str, score_str, link_str
                     ];
-
                     result.push(row);
 
                 });
@@ -230,7 +230,7 @@ $(document).ready(() => {
                 let uni_program_items = sort_dict(university_program_counter, sort_by = 'value', reverse = true);
                 // Get top 10 popular programs
                 uni_program_items = uni_program_items.slice(0, 10);
-                // Get labels and count for universities 
+                // Get labels and count for programs 
                 let uni_program_labels = uni_program_items.map(pair => {
                     return pair[0]
                 });

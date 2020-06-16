@@ -1,3 +1,4 @@
+![https://travis-ci.com/github/CryoliteZ/studyabroad/builds/](https://travis-ci.com/CryoliteZ/studyabroad.svg?branch=master)
 
 <p align="center">
   <a href="https://github.com/CryoliteZ/ptt-studyabroad-api/"><img src="https://i.imgur.com/Ts8E9MU.png" alt="ptt-studyabroad-api"/></a>
