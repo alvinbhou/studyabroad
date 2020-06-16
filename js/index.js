@@ -24,9 +24,10 @@ const mdColors = [
     '#80cbc4'
 ];
 
-let programTypeChart;
-let commonUniPieChart;
+let programHorizontalChart;
+let uniHorizontalChart;
 let yearLineChart;
+let dataTable;
 
 let sort_dict = (dict, sort_by = 'key', reverse = false) => {
     let items = Object.keys(dict).map(function (key) {
@@ -47,30 +48,39 @@ let sort_dict = (dict, sort_by = 'key', reverse = false) => {
 
 $(document).ready(() => {
     $('.selectpicker').multiselect();
-    $('#main-table').DataTable({
+    dataTable = $('#main-table').DataTable({
         columns: [{
-                title: "Title"
+                title: "Title",
+                width: "25%"
             },
             {
-                title: "University"
+                title: "University",
+                width: "7%"
             },
             {
-                title: "Major　"
+                title: "Major　",
+                width: "7%"
             },
             {
-                title: "GPA"
+                title: "GPA",
+                width: "7%"
             },
             {
-                title: "Admission Programs"
+                title: "Admission Programs",
+                width: "42%"
             },
             {
-                title: "Date"
+                title: "Date",
+
+                width: "5%"
             },
             {
-                title: '<span data-toggle="tooltip" title="How well this article matches your query">Score <i class="fas fa-info-circle"></i></span>'
+                title: '<span data-toggle="tooltip" title="How well this article matches your query">Score <i class="fas fa-info-circle"></i></span>',
+                width: "7%"
             },
             {
-                title: "Link"
+                title: "Link",
+                width: "5%"
             }
         ],
         order: [],
@@ -82,7 +92,20 @@ $(document).ready(() => {
         scrollX: true
     });
     $('.dataTables_length').addClass('bs-select');
-    let $datatable = $('#main-table');
+
+    // Example Button click listener
+    $('#ex-btn1').click((e) => {
+        $("#target_schools").tagsinput('add', 'CMU');
+        $("#target_schools").tagsinput('add', 'CMU-SV');
+        let program_arr = ['MSIN', 'MSIS', 'MHCI', 'MITS', 'MSIT', 'MSSE', 'MCDS', 'MSML', 'MSR', 'MSCV', 'MISM', 'LTI', 'ETC', 'MSIT-MOB', 'METALS'];
+        program_arr.forEach(e => {
+            $("#target_programs").tagsinput('add', e);
+        })
+        setTimeout(() => {
+            $('#api-btn').click();
+        }, 800);
+    });
+
 
     // API Button click listener
     $('#api-btn').click((e) => {
@@ -110,6 +133,9 @@ $(document).ready(() => {
             get: (target, name) => name in target ? target[name] : 0
         });
         let university_counter = new Proxy({}, {
+            get: (target, name) => name in target ? target[name] : 0
+        });
+        let university_program_counter = new Proxy({}, {
             get: (target, name) => name in target ? target[name] : 0
         });
         let year_counter = new Proxy({}, {
@@ -174,6 +200,9 @@ $(document).ready(() => {
                         if (ad_program.university) {
                             university_counter[ad_program.university] += 1
                         }
+                        if (ad_program.program && ad_program.university) {
+                            university_program_counter[ad_program.university + '@' + ad_program.program] += 1;
+                        }
                     });
                     let ad_str = programs.join('<br>');
 
@@ -189,52 +218,83 @@ $(document).ready(() => {
 
                 });
 
-                $datatable.DataTable().clear().rows.add(result).draw();
+                dataTable.clear().rows.add(result).search('').draw();
 
 
-                // Histogram chart
-                var ctx = document.getElementById("histogramChart").getContext('2d');
-                if (programTypeChart) {
-                    programTypeChart.destroy();
+                // Bar chart
+                var ctx = document.getElementById("horizontalProgramBarChart").getContext('2d');
+                ctx.height = 800;
+                if (programHorizontalChart) {
+                    programHorizontalChart.destroy();
                 }
-                programTypeChart = new Chart(ctx, {
-                    type: 'bar',
+                let uni_program_items = sort_dict(university_program_counter, sort_by = 'value', reverse = true);
+                // Get top 10 popular programs
+                uni_program_items = uni_program_items.slice(0, 10);
+                // Get labels and count for universities 
+                let uni_program_labels = uni_program_items.map(pair => {
+                    return pair[0]
+                });
+                let uni_program_counts = uni_program_items.map(pair => {
+                    return pair[1]
+                });
+
+                programHorizontalChart = new Chart(ctx, {
+                    type: 'horizontalBar',
                     data: {
-                        labels: Object.keys(program_type_counter),
+                        labels: uni_program_labels,
                         datasets: [{
                             label: '# of posts',
-                            data: Object.values(program_type_counter),
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255,99,132,1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
+                            data: uni_program_counts,
+                            backgroundColor: mdColors,
+                            borderColor: mdColors,
                             borderWidth: 1
                         }]
                     },
                     options: {
+                        responsive: true,
+                        maintainAspectRatio: window.innerWidth >= 1600,
+                        legend: window.innerWidth < 1600 ? false : {
+                            position: 'bottom'
+                        },
                         scales: {
+                            xAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+
+                                }
+                            }],
                             yAxes: [{
                                 ticks: {
-                                    beginAtZero: true
+                                    callback: function (value, index, values) {
+                                        return value.split('@')
+                                    }
                                 }
-                            }]
+                            }],
+                        },
+                        title: {
+                            display: true,
+                            text: 'Click the bars to filter programs',
+                            fontFamily: 'Roboto',
+                            fontStyle: 'Normal',
+                            fontSize: 12
+                        },
+                        onClick: function (e, items) {
+                            if (items.length == 0) return; //Clicked outside any bar.
+                            let uni = items[0]._model.label;
+                            uni = uni.replace('@', ' - ');
+                            dataTable.search(uni, true, false).draw();
+                        },
+                        hover: {
+                            onHover: function (e) {
+                                var point = this.getElementAtEvent(e);
+                                if (point.length) e.target.style.cursor = 'pointer';
+                                else e.target.style.cursor = 'default';
+                            }
                         }
                     }
                 });
 
-                // Pie Chart
+                // horizontal Chart
                 let ctxP = document.getElementById("horizontalBarChart");
                 // Create uni_items array
                 let uni_items = sort_dict(university_counter, sort_by = 'value', reverse = true);
@@ -247,10 +307,10 @@ $(document).ready(() => {
                 let uni_counts = uni_items.map(pair => {
                     return pair[1]
                 });
-                if (commonUniPieChart) {
-                    commonUniPieChart.destroy();
+                if (uniHorizontalChart) {
+                    uniHorizontalChart.destroy();
                 }
-                commonUniPieChart = new Chart(ctxP, {
+                uniHorizontalChart = new Chart(ctxP, {
                     type: 'horizontalBar',
                     data: {
                         labels: uni_labels,
@@ -263,7 +323,8 @@ $(document).ready(() => {
                     },
                     options: {
                         responsive: true,
-                        legend: screen.width < 1440 ? false : {
+                        maintainAspectRatio: window.innerWidth >= 1600,
+                        legend: window.innerWidth < 1600 ? false : {
                             position: 'bottom'
                         },
                         scales: {
@@ -272,8 +333,28 @@ $(document).ready(() => {
                                     beginAtZero: true
                                 }
                             }]
+                        },
+                        title: {
+                            display: true,
+                            text: 'Click the bars to filter universities',
+                            fontFamily: 'Roboto',
+                            fontStyle: 'Normal',
+                            fontSize: 12
+                        },
+                        onClick: function (e, items) {
+                            if (items.length == 0) return; //Clicked outside any bar.
+                            uni = items[0]._model.label;
+                            dataTable.search(uni).draw();
+                        },
+                        hover: {
+                            onHover: function (e) {
+                                var point = this.getElementAtEvent(e);
+                                if (point.length) e.target.style.cursor = 'pointer';
+                                else e.target.style.cursor = 'default';
+                            }
                         }
-                    }
+                    },
+
                 });
 
 
@@ -309,6 +390,7 @@ $(document).ready(() => {
                     },
                     options: {
                         responsive: true,
+                        maintainAspectRatio: window.innerWidth >= 1600,
                         scales: {
                             yAxes: [{
                                 ticks: {
@@ -320,7 +402,7 @@ $(document).ready(() => {
                 });
                 $('#chart_row').removeClass('hidden');
                 $('html, body').animate({
-                    scrollTop: '+=640px'
+                    scrollTop: '+=500px'
                 }, 500);
             },
             error: (xhr) => {

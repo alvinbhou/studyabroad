@@ -131,7 +131,6 @@ main {
 
 .round-btn {
   border-radius: 30px;
-
 }
 
 .p-5 {
@@ -150,6 +149,11 @@ main {
   }
 }
 
+@media only screen and (max-width: 1600px) {
+  .card {
+    min-height: 420px;
+  }
+}
 
 
 button.multiselect,
@@ -195,17 +199,7 @@ button.multiselect,
   background-color: #fff !important;
 }
 
-ul.pie-legend {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-ul.pie-legend li {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-ul.pie-legend li span {
-  padding: 5px 10px;
-  color: #fff;
+#ex-btn1 {
+  line-height: 0.8;
+  font-size: 0.9em;
 }
