@@ -100,9 +100,24 @@ $(document).ready(() => {
         let program_arr = ['MSCS', 'MSIN', 'MSIS', 'MHCI', 'MITS', 'MSIT', 'MSSE', 'MCDS', 'MSML', 'MSR',
             'MRSD', 'MSCV', 'MISM', 'LTI', 'ETC', 'METALS', 'MSIT-MOB', 'MSIT-SE', 'RI'
         ];
-        program_arr.forEach(e => {
-            $("#target_programs").tagsinput('add', e);
+        program_arr.forEach(el => {
+            $("#target_programs").tagsinput('add', el);
         })
+        setTimeout(() => {
+            $('#api-btn').click();
+        }, 800);
+    });
+    $('#ex-btn2').click((e) => {
+        $("#program_types").multiselect('clearSelection');
+        $("#program_types").multiselect('select', 'HCI');
+        setTimeout(() => {
+            $('#api-btn').click();
+        }, 800);
+    });
+    $('#ex-btn3').click((e) => {
+        $("#program_types").multiselect('clearSelection');
+        $("#program_types").multiselect('select', 'SE');
+        $("#program_types").multiselect('select', 'MEng');
         setTimeout(() => {
             $('#api-btn').click();
         }, 800);

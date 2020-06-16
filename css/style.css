@@ -199,7 +199,10 @@ button.multiselect,
   background-color: #fff !important;
 }
 
-#ex-btn1 {
+#ex-btn1,
+#ex-btn2,
+#ex-btn3 {
   line-height: 0.8;
   font-size: 0.9em;
+  margin: 0.3em;
 }
