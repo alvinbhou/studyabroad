@@ -126,6 +126,7 @@ $(document).ready(() => {
 
     // API Button click listener
     $('#api-btn').click((e) => {
+        let flag = false;
         $('#search-spinner').removeClass('hidden');
         $('#search-icon').hide();
         let university = $('#university').val();
@@ -161,6 +162,12 @@ $(document).ready(() => {
 
         console.log(query);
 
+        setTimeout(() => {
+            if (!flag) {
+                $('.toast').toast('show');
+            }
+        }, 5000);
+
         $.ajax({
             type: "POST",
             url: API_URL,
@@ -168,6 +175,7 @@ $(document).ready(() => {
             dataType: "json",
             crossDomain: true,
             success: (data) => {
+                flag = true;
                 $('#search-spinner').addClass('hidden');
                 $('#search-icon').show();
 

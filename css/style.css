@@ -54,7 +54,7 @@ main {
 
 .main_api_description {
   text-align: justify;
-  max-width: 380px;
+  max-width: 400px;
 }
 
 .main-img {
@@ -205,4 +205,10 @@ button.multiselect,
   line-height: 0.8;
   font-size: 0.9em;
   margin: 0.3em;
+}
+
+.toast {
+  position: absolute;
+  top: 8vh;
+  right: 2vh;
 }
