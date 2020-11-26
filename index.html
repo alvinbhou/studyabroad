@@ -105,8 +105,10 @@
   </header>
   <!--Main Navigation-->
 
+
   <!--Main layout-->
   <main class="pt-5 mx-lg-5">
+  
     <div class="container-fluid mt-5">
 
       <!-- Heading -->
@@ -147,113 +149,182 @@
 
             <!-- Grid column -->
             <div class="col-md-7 mb-lg-0 mb-8">
-              <form class="container">
-                <div class="font-weight-normal">Academic Background</div>
-                <div class="row">
-                  <div class=" col-md-12 mb-12 mb-md-4 d-flex justify-content-center">
-                    <div class="input-group flex-nowrap">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text addon-wrapping">University</span>
+              <ul class="nav nav-tabs" id="mainTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#background_form" role="tab" aria-controls="background"
+                    aria-selected="true">Search by Background</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#school_form" role="tab" aria-controls="school"
+                    aria-selected="false">Search by Program</a>
+                </li>
+               
+              </ul>
+              <div class="tab-content mt-2" id="myTabContent">
+                <form id="background_form" class="container tab-pane fade show active" role="tabpanel">
+                  <div class="font-weight-normal">Academic Background</div>
+                  <div class="row">
+                    <div class=" col-md-12 mb-12 mb-md-4 d-flex justify-content-center">
+                      <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text addon-wrapping">University</span>
+                        </div>
+                        <input id="university" ype="text" class="form-control" placeholder="Ex: NTU / 台大 / 國立臺灣大學 / 112"
+                          aria-label="University" aria-describedby="addon-wrapping">
                       </div>
-                      <input id="university" ype="text" class="form-control" placeholder="Ex: NTU / 台大 / 國立臺灣大學 / 112"
-                        aria-label="University" aria-describedby="addon-wrapping">
+                    </div>
+                    <div class=" col-md-6 mb-6 mb-md-4 d-flex justify-content-center">
+                      <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text addon-wrapping">Major</span>
+                        </div>
+                        <input id="major" type="text" class="form-control" placeholder="Ex: CS / CSIE / 資管"
+                          aria-label="Major" aria-describedby="addon-wrapping">
+                      </div>
+                    </div>
+                    <div class=" col-md-6 mb-6 mb-md-4 d-flex justify-content-center">
+                      <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text addon-wrapping">GPA</span>
+                        </div>
+                        <input id="gpa" type="number" step="0.01" class="form-control" placeholder="Ex: 3.9"
+                          aria-label="GPA" aria-describedby="addon-wrapping">
+                      </div>
                     </div>
                   </div>
-                  <div class=" col-md-6 mb-6 mb-md-4 d-flex justify-content-center">
-                    <div class="input-group flex-nowrap">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text addon-wrapping">Major</span>
-                      </div>
-                      <input id="major" type="text" class="form-control" placeholder="Ex: CS / CSIE / 資管"
-                        aria-label="Major" aria-describedby="addon-wrapping">
+
+                  <div class="row">
+                    <div class=" col-md-12 mb-12 mb-md-4 ">
+                      <div class="font-weight-normal"><span data-toggle="tooltip"
+                          title="Fullname or abbreviations are both acceptable">Target Schools <i
+                            class="fas fa-info-circle font-weight-600"></i></span></div>
+                      <input id="target_schools" type="search" data-role="tagsinput"
+                        placeholder="Ex: Stanford / U Michigan / CMU / UCSD / UC Berkeley / UTAustin" aria-label="Search"
+                        class="form-control">
                     </div>
                   </div>
-                  <div class=" col-md-6 mb-6 mb-md-4 d-flex justify-content-center">
-                    <div class="input-group flex-nowrap">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text addon-wrapping">GPA</span>
-                      </div>
-                      <input id="gpa" type="number" step="0.01" class="form-control" placeholder="Ex: 3.9"
-                        aria-label="GPA" aria-describedby="addon-wrapping">
+
+                  <div class="row">
+                    <div class=" col-md-12 mb-12 mb-md-4 ">
+                      <div class="font-weight-normal"> <span data-toggle="tooltip"
+                          title="We only support EE/CS related programs at this moment">Target Programs <i
+                            class="fas fa-info-circle font-weight-600"></i></span></div>
+                      <input id="target_programs" type="search" data-role="tagsinput"
+                        placeholder="Ex: CS / EE / MSCS / MHCI / MEng / LTI / Robotics" aria-label="Search"
+                        class="form-control">
                     </div>
                   </div>
-                </div>
-
-                <div class="row">
-                  <div class=" col-md-12 mb-12 mb-md-4 ">
-                    <div class="font-weight-normal"><span data-toggle="tooltip"
-                        title="Fullname or abbreviations are both acceptable">Target Schools <i
-                          class="fas fa-info-circle font-weight-600"></i></span></div>
-                    <input id="target_schools" type="search" data-role="tagsinput"
-                      placeholder="Ex: Stanford / U Michigan / CMU / UCSD / UC Berkeley / UTAustin" aria-label="Search"
-                      class="form-control">
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class=" col-md-12 mb-12 mb-md-4 ">
-                    <div class="font-weight-normal"> <span data-toggle="tooltip"
-                        title="We only support EE/CS related programs at this moment">Target Programs <i
-                          class="fas fa-info-circle font-weight-600"></i></span></div>
-                    <input id="target_programs" type="search" data-role="tagsinput"
-                      placeholder="Ex: CS / EE / MSCS / MHCI / MEng / LTI / Robotics" aria-label="Search"
-                      class="form-control">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class=" col-md-6 mb-6">
-                    <div class="font-weight-normal">Program Type / Specialization</div>
-                  </div>
-                  <div class=" col-md-6 mb-6 ">
-                    <div class="font-weight-normal">Program Level</div>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class=" col-md-6 mb-6 mb-md-2 d-flex justify-content-center">
-                    <div class="input-group flex-nowrap">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text addon-wrapping">Type</span>
-                      </div>
-
-                      <select id="program_types" class="selectpicker" multiple data-live-search="true">
-                        <option value="CS">CS</option>
-                        <option value="EE">EE</option>
-                        <option value="IS">IS</option>
-                        <option value="HCI">HCI</option>
-                        <option value="MEng">MEng</option>
-                        <option value="SE">SE</option>
-                      </select>
+                  <div class="row">
+                    <div class=" col-md-6 mb-6">
+                      <div class="font-weight-normal">Program Type / Specialization</div>
                     </div>
-
-                  </div>
-                  <div class=" col-md-6 mb-6 mb-md-2 d-flex justify-content-center">
-                    <div class="input-group flex-nowrap">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text addon-wrapping">Level</span>
-                      </div>
-                      <select id="program_level" class="browser-default custom-select">
-                        <option value="MS" selected>MS</option>
-                        <option value="PhD">PhD</option>
-                      </select>
+                    <div class=" col-md-6 mb-6 ">
+                      <div class="font-weight-normal">Program Level</div>
                     </div>
                   </div>
-                </div>
-                <div class="font-weight-lighter">(*Note) All fields are optional</div>
 
-                <div class="container">
-                  <div class=" col-md-12 mb-12 mb-md-4 d-flex justify-content-center">
-                    <button id="api-btn" rel="#" type="button" class="btn btn-rounded btn-primary round-btn">
-                      <i id="search-icon" class="fas fa-search pr-2" aria-hidden="true"></i>
-                      <span id="search-spinner" class="spinner-border spinner-border-sm hidden" role="status"
-                        aria-hidden="true"></span>
-                      Search
-                    </button>
+                  <div class="row">
+                    <div class=" col-md-6 mb-6 mb-md-2 d-flex justify-content-center">
+                      <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text addon-wrapping">Type</span>
+                        </div>
 
+                        <select id="program_types" class="selectpicker" multiple data-live-search="true">
+                          <option value="CS">CS</option>
+                          <option value="EE">EE</option>
+                          <option value="IS">IS</option>
+                          <option value="HCI">HCI</option>
+                          <option value="MEng">MEng</option>
+                          <option value="SE">SE</option>
+                        </select>
+                      </div>
+
+                    </div>
+                    <div class=" col-md-6 mb-6 mb-md-2 d-flex justify-content-center">
+                      <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text addon-wrapping">Level</span>
+                        </div>
+                        <select id="program_level" class="browser-default custom-select">
+                          <option value="MS" selected>MS</option>
+                          <option value="PhD">PhD</option>
+                        </select>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                  <div class="font-weight-lighter">(*Note) All fields are optional</div>
 
-              </form>
+                  <div class="container">
+                    <div class=" col-md-12 mb-12 mb-md-4 d-flex justify-content-center">
+                      <button id="api-btn" rel="#" type="button" class="btn btn-rounded btn-primary round-btn">
+                        <i id="search-icon" class="fas fa-search pr-2" aria-hidden="true"></i>
+                        <span id="search-spinner" class="spinner-border spinner-border-sm hidden" role="status"
+                          aria-hidden="true"></span>
+                        Search
+                      </button>
+
+                    </div>
+                  </div>
+
+                </form>
+                <form id="school_form" class="container tab-pane fade show" role="tabpanel">
+                  <div class="font-weight-normal">Target School</div>
+                  <div class="row">
+                    <div class=" col-md-12 mb-12 mb-md-4 d-flex justify-content-center">
+                      <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text addon-wrapping">School</span>
+                        </div>
+                        <input id="school_form_target_school" ype="text" class="form-control" placeholder="Ex: Stanford / CMU / UMich / UTAustin / UofT / Berkeley"
+                          aria-label="University" aria-describedby="addon-wrapping">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="font-weight-normal">Program Name</div>
+
+                  <div class="row">
+                    <div class=" col-md-12 mb-12 mb-md-4 d-flex justify-content-center">
+                      <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text addon-wrapping">Program</span>
+                        </div>
+                        <input id="school_form_target_program" ype="text" class="form-control" placeholder="Ex: MSCS / MSEE / MEng / MHCI / CS / EE"
+                          aria-label="Program" aria-describedby="addon-wrapping">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="font-weight-normal">Program Level</div>
+                  <div class="row">
+                    <div class=" col-md-12 mb-12 mb-md-4 d-flex justify-content-center">
+                      <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text addon-wrapping">Level</span>
+                        </div>
+                        <select id="school_form_program_level" class="browser-default custom-select">
+                          <option value="MS" selected>MS</option>
+                          <option value="PhD">PhD</option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="font-weight-lighter">(*Note) All fields are optional</div>
+               
+                  <div class="container">
+                    <div class=" col-md-12 mb-12 mb-md-4 d-flex justify-content-center">
+                      <button id="school_form_api-btn" rel="#" type="button" class="btn btn-rounded btn-primary round-btn">
+                        <i id="school_form_search-icon" class="fas fa-search pr-2" aria-hidden="true"></i>
+                        <span id="school_form_search-spinner" class="spinner-border spinner-border-sm hidden" role="status"
+                          aria-hidden="true"></span>
+                        Search
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              
               <!-- Form -->
             </div>
             <!-- Grid column -->
@@ -316,6 +387,62 @@
           </div>
           <!--/.Card-->
         </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+
+      <!--Grid row-->
+      <div id="chart_row2" class="row wow fadeIn hidden d-flex justify-content-center">
+
+        <!--Grid column-->
+        <div class="col-md-4 mb-4">
+          <!--Card-->
+          <div class="card">
+            <div class="card-header text-center">
+              Top Common Colleges for Admissions
+            </div>
+            <!--Card content-->
+            <div class="card-body">
+              <canvas id="schoolBarChart" height="250px"></canvas>
+            </div>
+          </div>
+          <!--/.Card-->
+        </div>
+        <!--Grid column-->
+        <div class="col-md-4 mb-4">
+
+          <!--Card-->
+          <div class="card mb-4">
+            <div class="card-header text-center">
+              GPA Distribution
+            </div>
+
+            <!--Card content-->
+            <div class="card-body">
+              <!-- Line Chart -->
+              <canvas id="gpaBarChart" height="250px"></canvas>
+              <!-- Line Chart-->
+            </div>
+          </div>
+          <!--/.Card-->
+        </div>
+
+        <!--Grid column-->
+        <div class="col-md-4 mb-4">
+          <!--Card-->
+          <div class="card mb-4">
+            <!-- Card header -->
+            <div class="card-header text-center">
+              Top Common Major for Admissions
+            </div>
+            <!--Card content-->
+            <div class="card-body">
+              <canvas id="majorBarChart" height="250px"></canvas>
+            </div>
+          </div>
+          <!--/.Card-->
+        </div>
+ 
         <!--Grid column-->
       </div>
       <!--Grid row-->
