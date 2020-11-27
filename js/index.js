@@ -111,6 +111,7 @@ $(document).ready(() => {
         program_arr.forEach(el => {
             $("#target_programs").tagsinput('add', el);
         })
+        $('#mainTab .background-tab').click();
         setTimeout(() => {
             $('#api-btn').click();
         }, 800);
@@ -118,6 +119,7 @@ $(document).ready(() => {
     $('#ex-btn2').click((e) => {
         $("#program_types").multiselect('clearSelection');
         $("#program_types").multiselect('select', 'HCI');
+        $('#mainTab .background-tab').click();
         setTimeout(() => {
             $('#api-btn').click();
         }, 800);
@@ -126,6 +128,7 @@ $(document).ready(() => {
         $("#program_types").multiselect('clearSelection');
         $("#program_types").multiselect('select', 'SE');
         $("#program_types").multiselect('select', 'MEng');
+        $('#mainTab .background-tab').click();
         setTimeout(() => {
             $('#api-btn').click();
         }, 800);
