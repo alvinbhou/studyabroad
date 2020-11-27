@@ -7,8 +7,8 @@ Note:          Code is messy, quick work around
 Author:        Alvin Hou
 -------------------------------------------------
 */
-const API_URL = 'https://ptt-studyabroad-api.herokuapp.com';
-// const API_URL = 'http://127.0.0.1:5000';
+// const API_URL = 'https://ptt-studyabroad-api.herokuapp.com';
+const API_URL = 'http://127.0.0.1:5000';
 
 const placeholder_str = `<span> - </span>`;
 
@@ -151,7 +151,7 @@ $(document).ready(() => {
         let query = {
             "university": university,
             "major": major,
-            "gpa": gpa ? parseFloat(gpa) : 0,
+            "gpa": gpa ? parseFloat(gpa) : 3.5,
             "target_schools": target_schools,
             "target_programs": target_programs,
             "program_types": program_types,
