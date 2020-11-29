@@ -101,6 +101,23 @@ $(document).ready(() => {
     });
     $('.dataTables_length').addClass('bs-select');
 
+    // Dummy-proof UX friendly listener
+    let tags_input_add_listener = (element_id) => {
+        $(element_id).on('itemAdded', function(event) {
+            let tag = event.item;
+            let tags = tag.split('/');
+            tags.forEach(t => {
+                $(element_id).tagsinput('add', t.trim(), {preventPost: true});
+            });
+            if(tags.length > 1){
+                $(element_id).tagsinput('remove', event.item, {preventPost: true});
+            }
+        });
+    };
+    let tags_input_ids = ['#target_schools', '#target_programs'];
+    tags_input_ids.forEach(tid => tags_input_add_listener(tid));
+    
+
     // Example Button click listener
     $('#ex-btn1').click((e) => {
         $("#target_schools").tagsinput('add', 'CMU');
