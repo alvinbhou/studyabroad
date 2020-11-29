@@ -63,11 +63,11 @@ $(document).ready(() => {
             },
             {
                 title: "University",
-                width: "7%"
+                width: "9%"
             },
             {
                 title: "Major　",
-                width: "7%"
+                width: "13%"
             },
             {
                 title: "GPA",
@@ -75,7 +75,7 @@ $(document).ready(() => {
             },
             {
                 title: "Admission Programs",
-                width: "42%"
+                width: "34%"
             },
             {
                 title: "Date",
@@ -168,7 +168,7 @@ $(document).ready(() => {
         let query = {
             "university": university,
             "major": major,
-            "gpa": gpa ? parseFloat(gpa) : -100,
+            "gpa": gpa ? parseFloat(gpa) : 100,
             "target_schools": target_schools,
             "target_programs": target_programs,
             "program_types": program_types,
