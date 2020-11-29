@@ -151,7 +151,7 @@ $(document).ready(() => {
         let query = {
             "university": university,
             "major": major,
-            "gpa": gpa ? parseFloat(gpa) : 3.5,
+            "gpa": gpa ? parseFloat(gpa) : -100,
             "target_schools": target_schools,
             "target_programs": target_programs,
             "program_types": program_types,
