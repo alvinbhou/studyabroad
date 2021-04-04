@@ -10,7 +10,7 @@
 
 PTT StudyAbroad API provides a way to search for CS related articles with customized results that matches your background. This repository hosts the static webpages for the API.
 
-**API Github**: https://github.com/alvinhou/ptt-studyabroad-api/
+**API Github**: https://github.com/alvinbhou/ptt-studyabroad-api/
 
 **Documentation**: https://ptt-studyabroad-api.herokuapp.com/docs  
 
