@@ -212,3 +212,8 @@ button.multiselect,
   top: 8vh;
   right: 2vh;
 }
+
+.google-form-icon {
+  width: 25px;
+  height: 25px;
+}
