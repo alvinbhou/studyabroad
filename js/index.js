@@ -7,10 +7,10 @@ Note:          Code is messy, quick work around
 Author:        Alvin Hou
 -------------------------------------------------
 */
-const API_URL = 'https://ptt-studyabroad-api.herokuapp.com';
+// const API_URL = 'https://ptt-studyabroad-api.herokuapp.com';
 // const API_URL = 'https://ptt-studyabroad-api-beta.herokuapp.com';
 
-// const API_URL = 'http://127.0.0.1:5000';
+const API_URL = 'http://127.0.0.1:5000';
 
 const placeholder_str = `<span> - </span>`;
 
@@ -217,7 +217,7 @@ $(document).ready(() => {
                     let title_str = `<a href=${article.url} target="_blank" > <span class="font-weight-bolder">${article.article_title} </span> </a>`;
 
                     let date = new Date(article.date);
-                    let date_str = String(date.getFullYear()) + '/' + String(date.getMonth() + 1) + '/' + String(date.getDate() + 1);
+                    let date_str = String(date.getFullYear()) + '/' + String(date.getMonth() + 1) + '/' + String(date.getDate());
                     year_counter[date.getFullYear()] += 1;
 
 
