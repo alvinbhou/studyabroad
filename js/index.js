@@ -7,10 +7,10 @@ Note:          Code is messy, quick work around
 Author:        Alvin Hou
 -------------------------------------------------
 */
-// const API_URL = 'https://ptt-studyabroad-api.herokuapp.com';
+const API_URL = 'https://ptt-studyabroad-api.herokuapp.com';
 // const API_URL = 'https://ptt-studyabroad-api-beta.herokuapp.com';
 
-const API_URL = 'http://127.0.0.1:5000';
+// const API_URL = 'http://127.0.0.1:5000';
 
 const placeholder_str = `<span> - </span>`;
 
